@@ -1,31 +1,25 @@
-# gpu/processor_cmake
+# Processor
 
+## Configure
 
-
-## Getting Started
-
-Download links:
-
-SSH clone URL: ssh://git@git.jetbrains.space/gpu-audio/gpu/processor_cmake.git
-
-HTTPS clone URL: https://git.jetbrains.space/gpu-audio/gpu/processor_cmake.git
-
-
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
-
-## Prerequisites
-
-What things you need to install the software and how to install them.
-
+Configure on Windows:
 ```
-Examples
+cmake -S . -B ../@BUILD
 ```
 
-## Deployment
+Configure on macOS:
+```
+cmake -S . -B ../@BUILD -GXcode
+```
 
-Add additional notes about how to deploy this on a production system.
+Configure on Linux:
+```
+cmake -S . -B ../@BUILD -GNinja
+```
 
-## Resources
-
-Add links to external resources for this project, such as CI server, bug tracker, etc.
+## Build
+```
+cmake --build ../@BUILD --config Release
+cmake --build ../@BUILD --config RelWithDebInfo
+cmake --build ../@BUILD --config Debug
+```
