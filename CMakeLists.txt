@@ -12,11 +12,16 @@ project(gpu_processors
 
 # Define the list of processors to build
 if(NOT DEFINED PROCESSOR_LIST)
-    set(PROCESSOR_LIST
-        "gain_processor"
-        "iir_processor"
-        "fir_processor"
+    file(GLOB_RECURSE folders
+         LIST_DIRECTORIES YES
+         RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}/.."
+         "../*"
     )
+    foreach(folder IN LISTS folders)
+        if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/../${folder}/PROCESSOR")
+            list(APPEND PROCESSOR_LIST ${folder})
+        endif()
+    endforeach()
 endif()
 
 # Configure build output paths
@@ -78,10 +83,9 @@ endif()
 
 # Add cmake-common modules
 list(APPEND CMAKE_MODULE_PATH ${FETCH_LOCATION}/cmake-common)
-set(cmake-common-${PROJECT_NAME}_SOURCE_DIR "${FETCH_LOCATION}/cmake-common")
 
 # Load cmake-common macros
-include("${cmake-common-${PROJECT_NAME}_SOURCE_DIR}/braingines.cmake")
+include("${FETCH_LOCATION}/cmake-common/braingines.cmake")
 
 # Process each processor
 foreach(PROCESSOR ${PROCESSOR_LIST})
@@ -104,6 +108,14 @@ foreach(PROCESSOR ${PROCESSOR_LIST})
     set(${PROCESSOR_DIR_NAME}_MAJOR_VERSION ${CMAKE_MATCH_1})
     set(${PROCESSOR_DIR_NAME}_MINOR_VERSION ${CMAKE_MATCH_2})
     set(${PROCESSOR_DIR_NAME}_PATCH_LEVEL ${CMAKE_MATCH_3})
+    set(${PROCESSOR_DIR_NAME}_BUILD_NUMBER "0")
+
+    # Variables
+    set(BG_VERSION_INFO "${CMAKE_MATCH_1}.${CMAKE_MATCH_2}.${CMAKE_MATCH_3}+${${PROCESSOR_DIR_NAME}_BUILD_NUMBER}")
+    set(BG_VERSIONINFO_FILEDESCRIPTION "${PARSED_PROCESSOR_DESCRIPTION}")
+    set(BG_VERSIONINFO_PRODUCTNAME "${PROCESSOR_DIR_NAME}")
+    set(PROJECT_NAME "${PROCESSOR_DIR_NAME}")
+    set(cmake-common-${PROJECT_NAME}_SOURCE_DIR "${FETCH_LOCATION}/cmake-common")
 
     # Getting effect_name from the PROJECT_NAME
     string(REGEX REPLACE "^(.*)_(.*)$" "\\1" effect_name "${PROCESSOR_DIR_NAME}")
