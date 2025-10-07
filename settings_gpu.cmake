@@ -1,8 +1,8 @@
 message(STATUS "Using Settings from: ${CMAKE_CURRENT_LIST_FILE}")
 
-set(CONAN_CUDA_ARCH "52;60;61;70;75;80;86;87;89;90")
+set(CONAN_CUDA_ARCH "52;60;61;70;75;80;86;87;89;90;120")
 
-set(CONAN_HIP_ARCH "gfx1030;gfx1032;gfx1100")
+set(CONAN_HIP_ARCH "gfx1030;gfx1031;gfx1032;gfx1100;gfx1101;gfx1102;gfx1151;gfx1200;gfx1201")
 
 # Preprocessor definitions
 string(REGEX REPLACE "[;]" ":" cuda_archs "${CONAN_CUDA_ARCH}")

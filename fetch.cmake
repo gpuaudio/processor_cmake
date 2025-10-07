@@ -5,7 +5,7 @@ cmake_policy(SET CMP0135 NEW)
 FetchContent_Declare(
     googletest
     DOWNLOAD_EXTRACT_TIMESTAMP "true"
-    URL https://github.com/google/googletest/releases/download/v1.15.2/googletest-1.15.2.tar.gz
+    URL https://github.com/google/googletest/releases/download/v1.17.0/googletest-1.17.0.tar.gz
 )
 # For Windows: Prevent overriding the parent project's compiler/linker settings
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
@@ -26,7 +26,7 @@ FetchContent_MakeAvailable(processor_api)
 # processor_utilities
 FetchContent_Declare(
     processor_utilities
-    URL https://github.com/gpuaudio/platform_headers/releases/download/v0.0.1/processor_utilities-v1.0.1_6.zip
+    URL https://github.com/gpuaudio/platform_headers/releases/download/v0.0.1/processor_utilities-v1.0.1_13.zip
     SOURCE_DIR ${FETCH_LOCATION}/include/processor_utilities
     FIND_PACKAGE_ARGS MODULE
 )
@@ -44,7 +44,7 @@ FetchContent_MakeAvailable(os_utilities)
 # gpu_primitives
 FetchContent_Declare(
     gpu_primitives
-    URL https://github.com/gpuaudio/platform_headers/releases/download/v0.0.1/gpu_primitives-v0.0.2_5.zip
+    URL https://github.com/gpuaudio/platform_headers/releases/download/v0.0.1/gpu_primitives-v0.0.2_7.zip
     SOURCE_DIR ${FETCH_LOCATION}/include/gpu_primitives
     FIND_PACKAGE_ARGS MODULE
 )
@@ -62,7 +62,7 @@ FetchContent_MakeAvailable(engine_api)
 # gpu_audio_client
 FetchContent_Declare(
     gpu_audio_client
-    URL https://github.com/gpuaudio/platform_headers/releases/download/v0.0.1/gpu_audio_client-v0.1.1_12.zip
+    URL https://github.com/gpuaudio/platform_headers/releases/download/v0.0.1/gpu_audio_client-v0.1.1_14.zip
     SOURCE_DIR ${FETCH_LOCATION}/include/gpu_audio_client
     FIND_PACKAGE_ARGS MODULE
 )
