@@ -17,7 +17,7 @@ include(GoogleTest)
 # processor_api
 FetchContent_Declare(
     processor_api
-    URL https://github.com/gpuaudio/platform_headers/releases/download/v0.0.1/processor_api-v2.1.0_70.zip
+    URL https://github.com/gpuaudio/platform_headers/releases/download/v0.0.1/processor_api-v2.2.0_71.zip
     SOURCE_DIR ${FETCH_LOCATION}/include/processor_api
     FIND_PACKAGE_ARGS MODULE
 )
@@ -26,7 +26,7 @@ FetchContent_MakeAvailable(processor_api)
 # processor_utilities
 FetchContent_Declare(
     processor_utilities
-    URL https://github.com/gpuaudio/platform_headers/releases/download/v0.0.1/processor_utilities-v1.0.1_13.zip
+    URL https://github.com/gpuaudio/platform_headers/releases/download/v0.0.1/processor_utilities-v1.0.1_15.zip
     SOURCE_DIR ${FETCH_LOCATION}/include/processor_utilities
     FIND_PACKAGE_ARGS MODULE
 )
@@ -44,7 +44,7 @@ FetchContent_MakeAvailable(os_utilities)
 # gpu_primitives
 FetchContent_Declare(
     gpu_primitives
-    URL https://github.com/gpuaudio/platform_headers/releases/download/v0.0.1/gpu_primitives-v0.0.2_7.zip
+    URL https://github.com/gpuaudio/platform_headers/releases/download/v0.0.1/gpu_primitives-v0.0.2_10.zip
     SOURCE_DIR ${FETCH_LOCATION}/include/gpu_primitives
     FIND_PACKAGE_ARGS MODULE
 )
@@ -62,7 +62,7 @@ FetchContent_MakeAvailable(engine_api)
 # gpu_audio_client
 FetchContent_Declare(
     gpu_audio_client
-    URL https://github.com/gpuaudio/platform_headers/releases/download/v0.0.1/gpu_audio_client-v0.1.1_14.zip
+    URL https://github.com/gpuaudio/platform_headers/releases/download/v0.0.1/gpu_audio_client-v0.1.1_17.zip
     SOURCE_DIR ${FETCH_LOCATION}/include/gpu_audio_client
     FIND_PACKAGE_ARGS MODULE
 )
